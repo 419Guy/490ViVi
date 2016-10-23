@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+//will need to run in order for login to work. If code is not running client cannot connect.
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
