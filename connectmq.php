@@ -1,4 +1,4 @@
-
+//code no longer needed
 <?php
 	$username = $_POST ['username'];
 	echo "$username";
