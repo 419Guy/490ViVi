@@ -1,3 +1,4 @@
+//old code don't use
 <?php
 	$db = new mysqli("localhost", "root", "khLux2016", "project");
 	
