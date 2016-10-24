@@ -1,4 +1,5 @@
 <?php 
+//No longer needed
 $db = new mysqli("localhost","root","khLux2016","project");
 
 if ($db->connect_errno > 0 )
