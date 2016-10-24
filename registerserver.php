@@ -30,8 +30,8 @@ function doRegister($firstname,$lastname,$username,$email,$password)
 	$count = $result->num_rows;
 
         if($count == 1){
-        echo "User is already registered/n";
-	echo "This is: $count";
+        echo "User is already registered\n";
+	
 	 while ($row = $result->fetch_assoc()){
                                 print_r($row);
          }
@@ -41,7 +41,7 @@ function doRegister($firstname,$lastname,$username,$email,$password)
         	$query = "insert into register (firstname, lastname, username, email, password, registration_time, login_time)  values('$firstname', '$lastname', '$username', '$email', sha2('$password',256), NOW(), NOW())";
         //place new user into database
 		if ($result = $db->query($query)){
-		echo "New user has been added.";
+		echo "New user has been added.\n";
 		}else{
 		die ('There was an error running the query [' . $db->error . ']');
         	}
