@@ -21,7 +21,7 @@ $client = new rabbitMQClient("register.ini","testServer");
 		 session_start();
                 $_SESSION['login'] = "1";
                header ("Location:postlogin.php");
-		//redirect to postlogin.php if user logged in
+		//redirect to postlogin.php if user logged in.  Now whether user truly signed in...
 	}else{
 
 		echo "Sorry, user already exists in database.";
