@@ -15,6 +15,9 @@ function doLogin($username,$password) //username and password come from client
         {
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
+	$username = $db->real_escape_string($username);
+        $password = $db->real_escape_string($password);
+
 	$sql = "select * from register where username = '$username' AND password = sha2('$password', 256)";
 	 if(!$result = $db->query($sql)){
                 die ('There was an error running the query [' . $db->error . ']'); //will state error in query
