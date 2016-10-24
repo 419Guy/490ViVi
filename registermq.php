@@ -25,7 +25,8 @@ $client = new rabbitMQClient("register.ini","testServer");
 	}else{
 
 		echo "Sorry, user already exists in database.";
-		echo "<a href=login.html#toregister>Return</a>";
+		header ("Refresh: 2; url = login.html#toregister");
+		//echo "<a href=login.html#toregister>Return</a>";
 	}
 		
 ?>
