@@ -24,6 +24,7 @@ $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 	}else{
 
 		echo "Sorry, wrong password.  Please try again.";
+		echo "<br><a href=login.html>Return</a>";
 	}
 		
 ?>
