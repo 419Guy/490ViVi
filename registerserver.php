@@ -15,6 +15,12 @@ function doRegister($firstname,$lastname,$username,$email,$password)
         {
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
+	$firstname = $db->real_escape_string($firstname);
+        $lastname = $db->real_escape_string($lastname);
+        $username = $db->real_escape_string($username);
+        $email = $db->real_escape_string($email);
+        $passoword = $db->real_escape_string($password);
+	
 	$query_count = "select * from register where username = '$username' AND password = sha2('$password',256)";
 
 	if (!$result = $db->query($query_count)){
@@ -68,6 +74,7 @@ function requestProcessor($request)
 	}
 }
 $server = new rabbitMQServer("register.ini","testServer");
+//register.ini talks to different exchange and queue because issues happened using same testExchange
 
 $server->process_requests('requestProcessor');
 exit();
