@@ -1127,13 +1127,13 @@ function get_classes_and_items_from_campushub($valuesArr)
 									$item['ISBN'] = $span->nodeValue;
 									break;
 								case 'book-meta book-copyright':
-									$item['Year'] = str_replace(array(' ', '\C2','Copyright'), '', $span->nodeValue);
+									$item['Year'] = str_replace(array(' ', 'Â','Copyright'), '', $span->nodeValue);
 									break;
 								case 'book-meta book-publisher':
-									$item['Publisher'] = str_replace(array(' ', '\C2','Publisher'), '', $span->nodeValue);
+									$item['Publisher'] = str_replace(array(' ', 'Â','Publisher'), '', $span->nodeValue);
 									break;
 								case 'book-meta book-edition':
-									$item['Edition'] = str_replace(array(' ', '\C2','Edition'), '', $span->nodeValue);
+									$item['Edition'] = str_replace(array(' ', 'Â','Edition'), '', $span->nodeValue);
 									break;
 								case 'book-price-new':
 									$item['Bookstore_Price'] = $span->nodeValue;
