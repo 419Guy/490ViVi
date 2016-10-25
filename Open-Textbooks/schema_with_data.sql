@@ -1113,7 +1113,7 @@ INSERT INTO `Bookstores` VALUES(1273, 5, 'http://www.aurariabooks.com/ePOS?this_
 INSERT INTO `Bookstores` VALUES(1276, 5, 'http://www.ubs.gvsu.edu/ePOS?this_category=69&store=437&form=shared3%2fgm%2fmain%2ehtml&design=437', 'http://www.ubs.gvsu.edu/ePOS', NULL, NULL, NULL);
 INSERT INTO `Bookstores` VALUES(1277, 5, 'http://www.gsustore.com/ePOS?store=559&form=shared3%2ftextbooks%2ftext_browse.html&campus=MAIN', 'http://www.gsustore.com/ePOS', NULL, NULL, NULL);
 INSERT INTO `Bookstores` VALUES(1279, 6, 'http://www.neebo.com/uta', 'http://www.neebo.com/', NULL, NULL, NULL);
-INSERT INTO `Bookstores` VALUES(1280, 4, 'http://www.bkstr.com/Home/10001-10555-1', 'http://www.bkstr.com/', '10555', '584', NULL);
+INSERT INTO `Bookstores` VALUES(1280, 4, 'http://www.bkstr.com/Home/10001-10555-1', 'http://www.bkstr.com/', '10555', '584', NULL);//values, bookstore type, links
 -- --------------------------------------------------------
 
 --
@@ -2304,7 +2304,7 @@ INSERT INTO `Campuses` VALUES(1299, 1273, NULL, NULL, 'Denver, Colorado', '2011-
 INSERT INTO `Campuses` VALUES(1300, 1276, NULL, NULL, 'Allendale, Grand Rapids & Holland, Michigan', '2011-09-02 11:39:40', 'Y');
 INSERT INTO `Campuses` VALUES(1301, 1277, NULL, NULL, 'Statesboro, Georgia', '2011-09-02 11:43:34', 'Y');
 INSERT INTO `Campuses` VALUES(1303, 1279, NULL, NULL, 'Arlington, TX', '2012-02-10 20:04:13', 'Y');
-INSERT INTO `Campuses` VALUES(1304, 1280, NULL, NULL, 'Newark, NJ', '2016-10-20 20:04:13', 'Y');
+INSERT INTO `Campuses` VALUES(1304, 1280, NULL, NULL, 'Newark, NJ', '2016-10-20 20:04:13', 'Y'); //location of the campus notice numbers are similar to before
 -- --------------------------------------------------------
 
 --
@@ -3952,7 +3952,7 @@ INSERT INTO `Campus_Names` VALUES(1300, 'GVSU', 'N');
 INSERT INTO `Campus_Names` VALUES(1301, 'Georgia Southern University', 'Y');
 INSERT INTO `Campus_Names` VALUES(1301, 'GSU', 'N');
 INSERT INTO `Campus_Names` VALUES(1303, 'University of Texas at Arlington', 'Y');
-INSERT INTO `Campus_Names` VALUES(1304, 'NJIT', 'Y');
+INSERT INTO `Campus_Names` VALUES(1304, 'NJIT', 'Y');//Just to name the campus
 -- --------------------------------------------------------
 
 --
