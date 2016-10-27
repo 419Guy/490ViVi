@@ -94,7 +94,7 @@ CREATE TABLE `Campuses` (
 
 
 
-INSERT INTO `Campuses` VALUES(1, 1, NULL, NULL, 'Newark, NJ', '2016-10-20 20:04:13', 'Y');
+INSERT INTO `Campuses` VALUES(1, 1, NULL, 'ALL', 'Newark, NJ', '2016-10-20 20:04:13', 'Y');
 
 -- --------------------------------------------------------
 
