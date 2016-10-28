@@ -1,0 +1,54 @@
+Jerome Bolante
+
+****Instructions to a possible Idea. Both the CSV file and JSON file****
+****I created from Import.io should have all the information I am listing.****
+
+
+Rather than having a huge populated table in a database, I was thinking
+that we can have important information be recorded for that book and 
+stored in our database (Author, ISBN, Title, Course ID), as seen from figure 2.0
+and name it something like Table1.
+
+Afterwards, we create Table2 (figure 1.0), and have the Title of the book
+with the hyperlink to the book. Then, we link the table and Associate all the 
+elements of Table1(Figure 2.0) to the Book Title of Figure1.0. I can explain 
+everything in more detail later, however, this is a work around, can be very
+tedious and lots of manual population if we cannot get the CSV file to work.
+If we do get the CSV/JSON file to work, we can populate the table automatically
+and just link it all together. In this example, Figure2.0's primary purpose
+is to serve the "Advance Search Bar", where users can search through Table1
+to look for the book. 
+
+Please tell me your thoughts on this, whether you agree
+or disagree with the idea. The sooner the better so I can think of another
+work around that would better suit you and the team so everyone can work more
+comfortably. 
+PS. I am using notepad because I am hipster :).
+	-Jerome Bolante
+
+_______________
+Figure 1.0  :) |
+----------------
+____________________________________________
+Book Title 	|   Hyperlink  |	    |
+----------------|--------------|------------|
+Perl Script     |www.amazon....|	    |
+----------------|--------------|------------|
+Cat In The Hat  |www.chegg.....|	    |
+--------------------------------------------|
+_____________________________________________
+
+
+_________________
+Figure 2.0  :3c  |
+------------------
+________________________________________________________________________________________
+Table 1					|		Table 2				|
+----------------------------------------|-----------------------------------------------|
+Course ID | Author |  ISBN |		|Book Info	|	HyperLink		|
+----------------------------		|-----------------------------------------------|
+IT240	  | George |###### |		|Perl Script	|	http://SiteToPerlScript	|
+----------------------------		|-----------------------------------------------|
+IT340	  |Jerome B|###### |		|Intro to Sys Ad|	http://SiteToBook	|
+----------|--------|-------| 		|-----------------------------------------------|
+________________________________________________________________________________________|
