@@ -1,10 +1,12 @@
+
 <?php
-
 //Bookstore functions: functions for querying bookstores.
-
 //Got rid of bookstores that aren't follett or b&n
+
+
 function format_item($item) //returns an item result with the proper formatting
 {
+
 	$format_arr = array('Necessity', 'Title', 'Edition', 'Authors', 'Publisher');
 	
 	foreach ($format_arr as $name)
@@ -43,15 +45,12 @@ function format_item($item) //returns an item result with the proper formatting
 	{
 		$item['Used_Rental_Price'] = priceFormat($item['Used_Rental_Price']);
 	}
-
 	return $item;
 }
-
 function format_dropdown($dropdown) //takes a dropdown array include name and value.  also instructor sometimes in the case of class.
 {
 	//ucwords term_name and class_code
 	$title_caps = array('Term_Name', 'Class_Code');
-
 	foreach ($dropdown as $name => $val)
 	{
 		if (is_array($val)) //so we can get sections, or really anything, recursively.
@@ -72,10 +71,9 @@ function format_dropdown($dropdown) //takes a dropdown array include name and va
 	return $dropdown;
 }
 
-
-
 function get_classes_and_items_from_follett($valuesArr)
-{	
+{
+	
 	//We hardcode Program_Value and Campus_Value in the Campuses table because they are campus-specific and pretty much static.  Division_Value varies and is sometimes like a higher level department, so we give it it's own table..
 	
 	$returnArray = array();
@@ -105,7 +103,10 @@ function get_classes_and_items_from_follett($valuesArr)
 		
 		if (!$response)
 		{
+			echo "Something!";
 			throw new Exception('Unable to fetch Follett Storefront for session with values '. print_r($valuesArr, true));
+		}else{
+			echo "Not connected to follett";
 		}
 	}
 		
@@ -292,10 +293,6 @@ function get_classes_and_items_from_follett($valuesArr)
 		throw new Exception("No response with values ". print_r($valuesArr, true));
 	}
 }
-
-
-
-
 function get_classes_and_items_from_bn($valuesArr)
 {
 	if (isset($valuesArr['Term_ID']) && !isset($valuesArr['Division_ID']))
@@ -518,7 +515,6 @@ function get_classes_and_items_from_bn($valuesArr)
 	}
 }	
 //clearcheck1
-
 function update_classes_from_bookstore($valuesArr) //$valuesArr is an array of values to send to the bookstore (usually its from a $row result).  Depending on what's there, we query the next thing:  Bookstore vars, Term_Value, Department_Value, Course_Value. 
 {
 	$wait_times = array(FALSE, 250000, 400000); //double retries
@@ -554,8 +550,11 @@ function update_classes_from_bookstore($valuesArr) //$valuesArr is an array of v
 	
 	if (!$conn = connect())
 	{
+		echo "not connected\n";//nkh6
 		trigger_error('Connect failure', E_USER_WARNING);
-	}
+	}else{//nkh6
+		echo "there is a connection fail\n";
+		}
 	
 	if ($results !== false)
 	{
@@ -648,7 +647,6 @@ function update_classes_from_bookstore($valuesArr) //$valuesArr is an array of v
 	}
 	
 }
-
 function update_class_items_from_bookstore($classValuesArr) //$classValuesArr is an *array of arrays* of values to send to the bookstore (usually its from a $row result).  Expects Bookstore vars, Term_Value, Department_Value, Course_Value, and Class_Value.  This function updates the Class-Items and Items tables with the results.
 {
 	$resultsArray = array();
@@ -890,7 +888,6 @@ function update_class_items_from_bookstore($classValuesArr) //$classValuesArr is
 							$Comments = "'". mysql_real_escape_string($item['Comments']) . "'";
 						}
 						$class_items_query .= '('. $result['Class_ID'] .', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '. $Comments .'),';
-
 					}
 				}
 				
@@ -908,5 +905,6 @@ function update_class_items_from_bookstore($classValuesArr) //$classValuesArr is
 		trigger_error('Failed to query bookstore with '. print_r($classValuesArr, true), E_USER_WARNING);
 	}		
 }
-
 ?>
+
+
