@@ -106,7 +106,7 @@ function get_classes_and_items_from_follett($valuesArr)
 			echo "Something!";
 			throw new Exception('Unable to fetch Follett Storefront for session with values '. print_r($valuesArr, true));
 		}else{
-			echo "Not connected to follett";
+			echo "Something else!";
 		}
 	}
 		
