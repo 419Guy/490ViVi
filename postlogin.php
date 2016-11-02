@@ -2,7 +2,14 @@
 <!--[if IE 8]><html class="ie8 lt-ie10"><![endif]-->
 <!--[if IE 9]><html class="ie9 lt-ie10"><![endif]-->
 <!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
-  
+<?php
+	session_start();
+	if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+		header ("Location:index.html");
+
+	}
+	$username = $_SESSION['username'];
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title-->
-    <title>Page Title</title>
+    <title>NJIT Textbook Hub</title>
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:300,400" rel="stylesheet">
@@ -56,7 +63,7 @@
           </div>
           <div class="block_main-header__banner-titles">
            
-            <p class="block_main-header__banner-slogan">Slogan Here</p>
+            <p class="block_main-header__banner-slogan"> Slogan Here</p>
           </div>
         </div>
         <!-- end of "logotype"/caption block-->
@@ -69,15 +76,29 @@
         <!-- subscribe form container start-->
         <div class="block_main-footer__form-container custom-container-centred">
        
-          <form method="post" name="searchform" class="block_main-footer__form">
+          <form method="post" action="search.php" name="searchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
-              <input type="email" name="email" placeholder="Enter Book Title Here" class="block_main-footer__form-input" required>
+              <input type="text" name="title" placeholder="Enter Book Title Here" class="block_main-footer__form-input" required>
             </div>
             <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
               <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
             </div>
           </form>
+
+	<a href="advancedsearch.html" style="color:white">Advanced Search</a><br><br>
+
+	<form action= "coursesearch.php" method="post" name="coursesearchform" class="block_main-footer__form">
+
+            <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
+              <input type="text" name="course" placeholder="Enter Course Here" class="block_main-footer__form-input" required>
+            </div>
+            <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
+              <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+        </div>
+
+        </form>
+
         </div>
         <!-- footer subscribe form end-->
         <!-- footer social icons start-->

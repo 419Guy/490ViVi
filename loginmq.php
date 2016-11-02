@@ -9,6 +9,7 @@ $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 	$request = array();
 	$request['username'] = $_POST['username'];
         $request['password'] = $_POST['password'];
+	$username = $request['username'];
 
 	
 	$response = $client->send_request($request);
@@ -17,10 +18,10 @@ $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 	if($response['returnCode'] == 0){
 		 session_start();
-                $_SESSION['login'] = "1";
+                $_SESSION['username'] = $username;
                 header ("Location:postlogin.php");
 		//redirect to postlogin.php if user logged in
-		
+
 	}else{
 
 		echo "Sorry, wrong password.  Please try again.";

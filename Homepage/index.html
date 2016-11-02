@@ -51,7 +51,8 @@
         <div class="block_main-header__banner col-xs-12 col-sm-6 col-md-6">
           <div class="block_main-header__banner-logo">
           <a href="index.html">
-            <img class="img-responsive" src="img/into-loader.png"></a>
+            <img class="img-responsive" src="images/into-loader.png
+"></a>
           </div>
           <div class="block_main-header__banner-titles">
            
@@ -68,15 +69,28 @@
         <!-- subscribe form container start-->
         <div class="block_main-footer__form-container custom-container-centred">
        
-          <form method="post" name="search.php" class="block_main-footer__form">
+          <form action= "search.php" method="post" name="searchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
               <input type="text" name="title" placeholder="Enter Book Title Here" class="block_main-footer__form-input" required>
             </div>
             <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
               <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+   	</div>
+  
+	</form>
+	<a href="advancedsearch.html" style="color:white">Advanced Search</a><br><br>
+	<form action= "coursesearch.php" method="post" name="coursesearchform" class="block_main-footer__form">
+
+            <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
+              <input type="text" name="course" placeholder="Enter Course Here" class="block_main-footer__form-input" required>
             </div>
-          </form>
+            <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
+              <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+        </div>
+
+        </form>
+                    
         </div>
         <!-- footer subscribe form end-->
         <!-- footer social icons start-->
