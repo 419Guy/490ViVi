@@ -1,5 +1,5 @@
 <?php 
-$db = new mysqli("localhost","root","khLux2016","project");
+$db = new mysqli("dancho","root","khLux2016","project");
 
 if ($db->connect_errno > 0 )
 {
