@@ -19,7 +19,7 @@ $client = new rabbitMQClient("register.ini","testServer");
 
 	if($response['returnCode'] == 0){
 		 session_start();
-                $_SESSION['login'] = "1";
+                $_SESSION['username'] = 'username';
                header ("Location:postlogin.php");
 		//redirect to postlogin.php if user logged in
 	}else{
