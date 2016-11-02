@@ -13,13 +13,15 @@ $client = new rabbitMQClient("register.ini","testServer");
 	$request['email'] = $_POST['email'];
         $request['password'] = $_POST['password'];
 	
+	$username['username'] = $request['username'];
+	
 	$response = $client->send_request($request);
 	//echo "client received response: ". PHP_EOL;
 	//var_dump($response);
 
 	if($response['returnCode'] == 0){
 		 session_start();
-                $_SESSION['username'] = 'username';
+                $_SESSION['username'] = $username;
                header ("Location:postlogin.php");
 		//redirect to postlogin.php if user logged in
 	}else{
