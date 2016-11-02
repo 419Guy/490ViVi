@@ -1,4 +1,5 @@
 <?php
+
 	$db = new mysqli("localhost", "root", "khLux2016", "project");
 	
 	if (mysqli_connect_errno())

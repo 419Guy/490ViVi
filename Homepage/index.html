@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title-->
-    <title>Page Title</title>
+    <title>NJIT Textbook Hub</title>
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:300,400" rel="stylesheet">
@@ -36,13 +36,13 @@
         <!-- start of countdown block, how change this date see js (function countdownInit)-->
         <div class="block_main-header__countdown col-xs-12 col-sm-6 col-md-6">
          <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
-         <a href="#login.php">
+         <a href="login.html">
       <button type="submit" class="block_main-footer__form-button animated fadeInUp"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Login</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
       </a>
        </div>
        
        <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
-          <a href="#signup.php"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Sign Up</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+          <a href="login.html#toregister"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Sign Up</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
     </a>
        </div>
         </div>
@@ -51,7 +51,8 @@
         <div class="block_main-header__banner col-xs-12 col-sm-6 col-md-6">
           <div class="block_main-header__banner-logo">
           <a href="index.html">
-            <img class="img-responsive" src="img/into-loader.png"></a>
+            <img class="img-responsive" src="images/into-loader.png
+"></a>
           </div>
           <div class="block_main-header__banner-titles">
            
@@ -68,15 +69,28 @@
         <!-- subscribe form container start-->
         <div class="block_main-footer__form-container custom-container-centred">
        
-          <form method="post" name="searchform" class="block_main-footer__form">
+          <form action= "search.php" method="post" name="searchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
-              <input type="email" name="email" placeholder="Enter Book Title Here" class="block_main-footer__form-input" required>
+              <input type="text" name="title" placeholder="Enter Book Title Here" class="block_main-footer__form-input" required>
             </div>
             <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
               <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+   	</div>
+  
+	</form>
+	<a href="advancedsearch.html" style="color:white">Advanced Search</a><br><br>
+	<form action= "coursesearch.php" method="post" name="coursesearchform" class="block_main-footer__form">
+
+            <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
+              <input type="text" name="course" placeholder="Enter Course Here" class="block_main-footer__form-input" required>
             </div>
-          </form>
+            <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
+              <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+        </div>
+
+        </form>
+                    
         </div>
         <!-- footer subscribe form end-->
         <!-- footer social icons start-->
