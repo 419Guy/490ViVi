@@ -62,7 +62,8 @@ echo "This is query: $sql\n";
              
                 echo "<p><h3>".$row['Title']."</h3>Author: ".$row['Authors'];
 		echo"<br>Edition: ".$row['Edition']."<br>Year: ".$row['Year']."<br>ISBN-13: ".$row['ISBN13']."<br>Publisher: ".$row['Publisher']."<br></p>";
-		//echo"<p>NJIT Bookstore Buy Price: $".$row['buy_book']."<br>NJIT Bookstore Rent Price: $".$row['rent_book']."</p>";
+		echo"<br>Book link: ".$row['Website']."</p>";
+		    //echo"<p>NJIT Bookstore Buy Price: $".$row['buy_book']."<br>NJIT Bookstore Rent Price: $".$row['rent_book']."</p>";
                 // posts results gotten from database(title and text) you can also show id ($results['id'])
             }
              
