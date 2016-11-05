@@ -70,7 +70,7 @@ class MySpider(CrawlSpider):
                         item = BkstrItem()
                         item["author2"] = var21.extract()[0].strip()
                         yield item
-		var22 = response.xpath('//*[@id="materialISBN"/text()')
+		var22 = response.xpath('//*[@id="materialISBN"]/text()')
                 for sel in response.xpath('//*[@id="materialISBN"]/text()'):
                         item = BkstrItem()
                         item["isbn2"] = var22.extract()[0].strip()
