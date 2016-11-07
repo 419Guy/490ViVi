@@ -44,28 +44,52 @@ while($rows=mysqli_fetch_array($result)){
 <td  class="tl-4"><?php  echo  $rows['email'];  ?></td>
 </tr>
 </table>
+<?php
+}
+mysqli_close($db);
+
+?>
+
 <!--<div  id="reg-bottom"  class="btmrg">Copyright  &copy;  2015  7topics.com</div>-->
 </form>
 </div>
 </div>
 <div  id="login">
-<div  id="login-sg">
+<div  id="login-st">
+<?php
+include('db.php');
+$search_sql = "select * from search_table where id = '$loggedin_id'";
+$result2=mysqli_query($db,$search_sql);
+?>
+
+<div  id="search-head" class="searchrg">Search History</div>
+<table  border="0"  align="center"  cellpadding="2"  cellspacing="0">
+<?php
+
+        while($rows=mysqli_fetch_array($result2)){
+?>
+<tr  id="sg-1">
+<td  class="tl-4"><?php  echo  $rows['search'];?></td></tr>
+
+<?php
+};
+?>
+
+</table>
+
+        
 <!--<div  id="st"><a  href="logout.php"  id="st-btn">Sign  Out</a></div>-->
 <!--<div  id="st"><a  href="deleteac.php"  id="st-btn">Delete  Account</a></div>-->
 </div>
 </div>
-<?php
-//  close  while  loop
-}
-?>
+
 </div>
 </div>
 </div>
 <?php
-//  close  connection;
+//close connection
 mysqli_close($db);
 ?>
-</br>
 <div  id="footer">
 <!--<p>Copyright  &copy;  2014-2015  7topics.com</p>-->
 </div>
