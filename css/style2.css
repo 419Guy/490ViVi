@@ -48,7 +48,7 @@ nav  li:hover{
 	float:left;    
 	width:100%;  
 	padding-top:1%;  
-	padding-bottom:0.5%;  
+	padding-bottom:20%;  
 	background-color:#EBD5B3;
 /*	border-top:5px  solid  #D5A761; */
 	}
@@ -154,8 +154,36 @@ td.t-2{
 	width:50%;
 	}
 #login-sg{  
-	margin-top:20%;    
+	margin-top:15%;    
 	}
+
+#search-head,#searchbottom{
+        width:100%;
+        text-align:center;
+        background-color:#fff;
+        font-weight:bold;
+        }
+
+.searchrg{
+        border-top-left-radius:20px; 
+        border-top-right-radius:20px;
+        padding-top:12px;  
+        padding-bottom:12px;
+        font-size:22px;
+        color:#6C7A89;
+        }
+#search-head:hover{
+        color:#D5A761;
+        transition:1s;
+        }
+
+#sg-1{
+        padding:10px;
+        float:center;
+        width:95%;
+        }
+
+
 #footer{
 	background-color:#fff;  
 	width:100%;  
