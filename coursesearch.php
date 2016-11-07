@@ -1,4 +1,5 @@
 <?php
+include("session2.php");
 
 $db = new mysqli("localhost","root","khLux2016","project");
 
@@ -10,10 +11,18 @@ if ($db->connect_errno > 0 )
 
 
 $course = $_POST['course'];
+if($loggedin_id != 0){
+	$loggedin_id = intval($loggedin_id);
 
+	$search_save = "insert into search_table (id, search, date) values('$loggedin_id','$course', NOW())";
+                if (!$result = $db->query($search_save)){
+                        die ('There was an error running the query [' . $db->error . ']');
+                        }
+
+}
 $query = "select * from Course where `Course_name` like '%".$course."%'";
 
-echo "This is query: $query\n";
+//echo "This is query: $query\n";
 	if (!$result = $db->query($query)){
         die ('There was an error running the query [' . $db->error . ']');
 }
