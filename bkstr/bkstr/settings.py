@@ -9,6 +9,10 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
+
+#import os
+#BKSTR_PATH = os.path.dirname(as.path.abspath(__file__))
+
 BOT_NAME = 'bkstr'
 
 SPIDER_MODULES = ['bkstr.spiders']
@@ -33,7 +37,7 @@ ROBOTSTXT_OBEY = False
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -50,11 +54,20 @@ ROBOTSTXT_OBEY = False
 #    'bkstr.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
+#RETRY_TIMES = 10
+
+#RETRY_HTTP_CODES = [500, 503, 504, 400, 404, 403, 408]
+
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'bkstr.middlewares.MyCustomDownloaderMiddleware': 543,
+#	'bkstr.middlewares.MyCustomDownloaderMiddleware': 543,
+#	'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+#	'bkstr.randomproxy.RandomProxy': 100,
+#	'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
 #}
+
+PROXY_LIST = '/home/nkh6/bkstr/bkstr/proxy_list.txt'
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html

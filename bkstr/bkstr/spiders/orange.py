@@ -22,10 +22,17 @@ class MySpider(CrawlSpider):
     	#print l[0]
 	#allowed_domains = my_file#Perhaps the lack of this was causing the excess search
     	start_urls = my_file
-    	#download_delay = 1
+	custom_settings = {'REDIRECT_ENABLED': False}
+	handle_httpstatus_list = [301]
+    	download_delay = 0.25
     	rules = [Rule(LinkExtractor(), follow=True, callback='parse_item')]
 
-        def parse_item (self, response):
+
+	#def start_requests(self):#An attempt at stopping the redirects
+	#	for url in self.start_urls:
+	#		yield Request(url, meta={'dont_redirect':True})
+        
+	def parse_item (self, response):
                 #hxs = HtmlXPathSelector(response)
                 #titles = select.xpath('//*[@id="fldset-crsmaterialgrp_2"]/div[1]/h3')
                 #items = []
@@ -57,8 +64,14 @@ class MySpider(CrawlSpider):
 		var13 = response.xpath('//*[@id="OrderItemAdd_1"]/div[2]/table/tr[2]/td[8]/text()')
                 for sel in response.xpath('//*[@id="OrderItemAdd_1"]/div[2]/table/tr[2]/td[8]/text()'):
                         item = BkstrItem()
-                        item["price1"] = var13.extract()[0].strip()
+                        item["newprice1"] = var13.extract()[0].strip()
                         yield item
+		var14 = response.xpath('//*[@id="OrderItemAdd_1"]/div[2]/table/tr[3]/td[8]/text()')
+                for sel in response.xpath('//*[@id="OrderItemAdd_1"]/div[2]/table/tr[3]/td[8]/text()'):
+                        item = BkstrItem()
+                        item["usedprice1"] = var14.extract()[0].strip()
+                        yield item
+
 
                 var2 = response.xpath('//*[@id="fldset-crsmaterialgrp_2"]/div[1]/h3/text()')
                 for sel in response.xpath('//*[@id="fldset-crsmaterialgrp_2"]/div[1]/h3/text()'):
@@ -78,8 +91,14 @@ class MySpider(CrawlSpider):
 		var23 = response.xpath('//*[@id="OrderItemAdd_2"]/div[2]/table/tr[2]/td[8]/text()')
                 for sel in response.xpath('//*[@id="OrderItemAdd_2"]/div[2]/table/tr[2]/td[8]/text()'):
                         item = BkstrItem()
-                        item["price2"] = var23.extract()[0].strip()
+                        item["newprice2"] = var23.extract()[0].strip()
                         yield item
+		var24 = response.xpath('//*[@id="OrderItemAdd_2"]/div[2]/table/tr[3]/td[8]/text()')
+                for sel in response.xpath('//*[@id="OrderItemAdd_2"]/div[2]/table/tr[3]/td[8]/text()'):
+                        item = BkstrItem()
+                        item["usedprice2"] = var24.extract()[0].strip()
+                        yield item
+
 
 
 
@@ -101,8 +120,14 @@ class MySpider(CrawlSpider):
 		var33 = response.xpath('//*[@id="OrderItemAdd_3"]/div[2]/table/tr[2]/td[8]/text()')
                 for sel in response.xpath('//*[@id="OrderItemAdd_3"]/div[2]/table/tr[2]/td[8]/text()'):
                         item = BkstrItem()
-                        item["price3"] = var33.extract()[0].strip()
+                        item["newprice3"] = var33.extract()[0].strip()
                         yield item
+		var34 = response.xpath('//*[@id="OrderItemAdd_3"]/div[2]/table/tr[3]/td[8]/text()')
+                for sel in response.xpath('//*[@id="OrderItemAdd_3"]/div[2]/table/tr[3]/td[8]/text()'):
+                        item = BkstrItem()
+                        item["usedprice3"] = var34.extract()[0].strip()
+                        yield item
+
 
 
 
