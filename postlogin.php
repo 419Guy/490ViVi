@@ -49,6 +49,10 @@
       <button type="submit" class="block_main-footer__form-button animated fadeInUp"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Logout</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
       </a>
        </div>
+		 <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
+          <a href="profile.php"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">Profile</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+    </a>
+       </div>
        
        <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
           <a href="phpBB3"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Forum</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
@@ -65,7 +69,8 @@
           </div>
           <div class="block_main-header__banner-titles">
            
-            <p class="block_main-header__banner-slogan"> Slogan Here</p>
+            <p class="block_main-header__banner-slogan"> Welcome <?php echo $username; ?></p>
+
           </div>
         </div>
         <!-- end of "logotype"/caption block-->
@@ -78,7 +83,7 @@
         <!-- subscribe form container start-->
         <div class="block_main-footer__form-container custom-container-centred">
        
-          <form method="post" action="search.php" name="searchform" class="block_main-footer__form">
+          <form method="post" action="booksearchmq.php" name="searchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
               <input type="text" name="title" placeholder="Enter Book Title Here" class="block_main-footer__form-input" required>
@@ -88,12 +93,12 @@
             </div>
           </form>
 
-	<a href="advancedsearch.html" style="color:white">Advanced Search</a><br><br>
+	<a href="advancedsearch.php" style="color:white">Advanced Search</a><br><br>
 
 	<form action= "coursesearch.php" method="post" name="coursesearchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
-              <input type="text" name="name" placeholder="Enter Course Here" class="block_main-footer__form-input" required>
+              <input type="text" name="course" placeholder="Enter Course Here: it 490" class="block_main-footer__form-input" required>
             </div>
             <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
               <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
