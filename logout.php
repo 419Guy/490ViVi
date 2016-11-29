@@ -1,12 +1,9 @@
 <html>
-	<head>But sir, you forgot you hat.</head>
-	<body>You are Logged out.<br>
-
+<body>
 <?php
 		session_start();
 		session_destroy();
+		echo "You have logged out";
+		header ("Refresh: 1; url=index.html");
 ?>
-
-	<a href=index.html>Click here to return to login page</a>
-</body>
 </html>

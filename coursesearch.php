@@ -1,5 +1,5 @@
-
 <?php
+include("session2.php");
 
 $db = new mysqli("localhost","root","khLux2016","project");
 
@@ -11,11 +11,18 @@ if ($db->connect_errno > 0 )
 
 
 $course = $_POST['course'];
+if($loggedin_id != 0){
+	$loggedin_id = intval($loggedin_id);
 
-$query = "select * from Course where Course = '$course'";
+	$search_save = "insert into search_table (id, search, date) values('$loggedin_id','$course', NOW())";
+                if (!$result = $db->query($search_save)){
+                        die ('There was an error running the query [' . $db->error . ']');
+                        }
 
-echo "This is query: $query\n";
+}
+$query = "select * from Course where `Course_name` like '%".$course."%'";
 
+//echo "This is query: $query\n";
 	if (!$result = $db->query($query)){
         die ('There was an error running the query [' . $db->error . ']');
 }
@@ -34,9 +41,14 @@ echo "This is query: $query\n";
             while($row = $result->fetch_assoc()){
             // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
              
-                echo "<p><h3>".$row['Course']."</h3>Section: ".$row['Section'];
-		echo"<br>Professor: ".$row['Professor']."</p>";
-		echo"<br>Book link: ".$row['Website']."</p>";
+                echo "<h3>".$row['Course_name']."</h3>";
+		echo "<p><br>Section: ".$row['Section_num'];
+		echo "<br>Call number: ".$row['Call_num'];
+		echo "<br>Professor: ".$row['Professor'];
+		echo "<br>Time: ".$row['Time'];
+		echo "<br>Room: ".$row['Room']."</p>";
+		echo "<br><a href=\"".$row['Book_Info']."\">Book Link</a>";
+		echo "<p><br>---------------------------------------------</p>";
                 // posts results gotten from database(title and text) you can also show id ($results['id'])
             }
              
@@ -45,7 +57,4 @@ echo "This is query: $query\n";
             echo "No results";
         }
         
-?>
-
-
-	
+?>	

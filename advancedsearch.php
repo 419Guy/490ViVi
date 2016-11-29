@@ -1,15 +1,18 @@
-//old code dont use
-
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<?php
+	//run sesssion as the user logged in
+	session_start();
+	$username = $_SESSION['username'];
+?>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
-        <title>Textbook Advanced Search</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="description" content="Login to your account" />
         <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
@@ -18,17 +21,20 @@
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+	<title>Textbook Advanced Search</title>
     </head>
+
+
     <body>
         <div class="container">
             <header>
-                <h1><span>Textbook Advanced Search</span></h1>
+                <h1><span>Textbook Advanced Search</span><?php echo"  $username";?></h1>
             </header>
             <section>				
                 <div id="container_demo" >
                     <div id="wrapper">
 			<div id="login" class="animate form" >     
-                        <form  action="search.php" method="POST" autocomplete="on"> 
+                        <form  action="booksearchmq.php" method="POST" autocomplete="on"> 
                                 <h1>Advanced Search</h1> 
                                 <p> 
                   <label for="title" class="title"> Textbook Title </label>
@@ -48,17 +54,18 @@
                      <input id="publisher" name="publisher" type="text" placeholder="McGraw-Hill"/>
 
 			</p>
-	<p>
+<!--	<p>
 <label for="course" class="course"> NJIT Course </label>
                      <input id="course" name="course" type="text" placeholder="IT490"/>
 	                               
-                             </p>
+                             </p> -->
 
 			<p class="login button"> 
                                     <input type="submit" value="Search" /> 
 								</p>
                               <p class="change_link">
-                                                                        Return to homepage?                                                                    <a href="index.html">Return</a>
+                                                                        Return to homepage?                                                                    <a href="postlogin.php">Return</a>
+<!--if user is logged in, page will return to postlogin, else it will return to index.html which is for users not logged in -->
                                                                 </p>
    
                             </form>
