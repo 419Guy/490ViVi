@@ -1,17 +1,27 @@
+<?php
+define('IN_PHPBB', true);
+
+$phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './phpBB3/';
+$phpEx = substr(strrchr(__FILE__, '.'), 1);
+include($phpbb_root_path . 'common.' . $phpEx);
+
+// Start session management
+$user->session_begin();
+$auth->acl($user->data);
+$user->setup('');
+
+
+if ($user->data['user_id'] == ANONYMOUS)
+{
+header("Location: login.php");
+die();}
+?>
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie8 lt-ie10"><![endif]-->
 <!--[if IE 9]><html class="ie9 lt-ie10"><![endif]-->
 <!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
-<?php
-//create a session with username
-//if you try to access this page without logging in, will be redirected
-	session_start();
-	if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-		header ("Location:index.html");
 
-	}
-	$username = $_SESSION['username'];
-?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,19 +53,24 @@
       <!-- header start-->
       <header class="block_main-header">
         <!-- start of countdown block, how change this date see js (function countdownInit)-->
-        <div class="block_main-header__countdown col-xs-12 col-sm-6 col-md-6">
-         <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
+        <div class="block_main-header__countdown col-xs-12 col-sm-4 col-md-4">
+         <div class="block_main-header__countdown col-xs-12 col-sm-4 col-md-4">
          <a href="logout.php">
       <button type="submit" class="block_main-footer__form-button animated fadeInUp"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Logout</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
       </a>
        </div>
-		 <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
+        <div class="block_main-header__countdown col-xs-12 col-sm-4 col-md-4">
           <a href="profile.php"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">Profile</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
-    </a>
+    	  </a>
+		</div>
+        
+        <div class="block_main-header__countdown col-xs-12 col-sm-4 col-md-4">
+         <a href="booktosell.php">
+      <button type="submit" class="block_main-footer__form-button animated fadeInUp"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Books to Sell</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+      </a>
        </div>
-       
-       <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
-          <a href="phpBB3"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Forum</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+       <div class="block_main-header__countdown col-xs-12 col-sm-4 col-md-4">
+          <a href="phpBB3" target="_blank"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Forum</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
     </a>
        </div>
         </div>
@@ -63,14 +78,13 @@
         <!-- start of "logotype"/caption block-->
         <div class="block_main-header__banner col-xs-12 col-sm-6 col-md-6">
           <div class="block_main-header__banner-logo">
-          <a href="index.html">
+          <a href="index.php">
             <img class="img-responsive" src="images/into-loader.png
 "></a>
           </div>
           <div class="block_main-header__banner-titles">
            
-            <p class="block_main-header__banner-slogan"> Welcome <?php echo $username; ?></p>
-
+            <p class="block_main-header__banner-slogan">NJIT Textbook Hub</p>
           </div>
         </div>
         <!-- end of "logotype"/caption block-->
@@ -93,29 +107,31 @@
             </div>
           </form>
 
-	<a href="advancedsearch.php" style="color:white">Advanced Search</a><br><br>
+        <a href="advancedsearch.php" style="color:white">Advanced Search</a><br><br>
 
 	<form action= "coursesearch.php" method="post" name="coursesearchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
-              <input type="text" name="course" placeholder="Enter Course Here: it 490" class="block_main-footer__form-input" required>
+              <input type="text" name="course" placeholder="Enter Course Here" class="block_main-footer__form-input" required>
             </div>
             <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
               <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
-        </div>
+            </div>
 
-        </form>
+    </form>
 
-        </div>
+    <form action= "placeholder.php" method="post" name="UsernameHere" class="block_main-footer__form">
+
+            <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
+              <input type="text" name="title" placeholder="Enter Username Here" class="block_main-footer__form-input" required>
+            </div>
+            <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
+              <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+   	        </div>
+    </form>
+
+
         <!-- footer subscribe form end-->
-        <!-- footer social icons start-->
-        <ul class="block_main-footer__social-list">
-          <li class="block_main-footer__social-item"><a href="#" class="block_main-footer__social-item-link"><i class="fa fa-facebook block_main-footer__social-item-link-icon"></i></a></li>
-         
-          <li class="block_main-footer__social-item"><a href="#" class="block_main-footer__social-item-link"><i class="fa fa-youtube block_main-footer__social-item-link-icon"></i></a></li>
-          <li class="block_main-footer__social-item"><a href="#" class="block_main-footer__social-item-link"><i class="fa fa-twitter block_main-footer__social-item-link-icon"></i></a></li>
-        </ul>
-        <!-- footer social icons end-->
       </div>
       <!-- main footer end-->
       <!-- Page-wrapper end-->
