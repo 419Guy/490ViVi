@@ -58,18 +58,21 @@ mysqli_close($db);
 <div  id="login-st">
 <?php
 include('db.php');
-$search_sql = "select * from search_table where id = '$loggedin_id'";
+$search_sql = "select * from booksale where id = '$loggedin_id'";
+if(!mysqli_query($db, $search_sql)){
+	echo "Error message: ".mysqli_error($db);
+}
 $result2=mysqli_query($db,$search_sql);
 ?>
 
-<div  id="search-head" class="searchrg">Search History</div>
+<div  id="search-head" class="searchrg">Textbooks Being Sold</div>
 <table  border="0"  align="center"  cellpadding="2"  cellspacing="0">
 <?php
 
         while($rows=mysqli_fetch_array($result2)){
 ?>
 <tr  id="sg-1">
-<td  class="tl-4"><?php  echo  $rows['search'];?></td></tr>
+<td  class="tl-4"><?php  echo  "Book: " .$rows['title1']." ISBN: " .$rows['isbn'] . " Price: ". $rows['saleprice'];?></td></tr>
 
 <?php
 };

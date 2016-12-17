@@ -12,8 +12,7 @@ $client = new rabbitMQClient("register.ini","testServer");
 	$request['username'] = $_POST['username'];
 	$request['email'] = $_POST['email'];
         $request['password'] = $_POST['password'];
-	
-	$username['username'] = $request['username'];
+	$username = $request['username'];
 	
 	$response = $client->send_request($request);
 	//echo "client received response: ". PHP_EOL;
@@ -23,7 +22,7 @@ $client = new rabbitMQClient("register.ini","testServer");
 		 session_start();
                 $_SESSION['username'] = $username;
                header ("Location:postlogin.php");
-		//redirect to postlogin.php if user logged in
+		//redirect to postlogin.php if user logged in.  Now whether user truly signed in...
 	}else{
 
 		echo "Sorry, user already exists in database.";

@@ -7,7 +7,6 @@ if(!$result = mysqli_query($db,$ses_sql)){
                 die ('There was an error running the query [' . mysqli_error($db) . ']');
 }
 $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-
 $loggedin_session=$row['username'];
 $loggedin_id=$row['id'];
 ?>
