@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <title>BOOK App</title>
+    <script>		
+		function amazon(){
+		  var bookstore_url = document.getElementById("bookstore_url").value;
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				var element = document.getElementById("url_links");
+				JSON.parse(xhttp.responseText).forEach(function(url_name){
+					var para = document.createElement("a");
+					var br = document.createElement("br");
+					var node = document.createTextNode("Amazon");
+					para.appendChild(node);
+					para.setAttribute('href', url_name);
+					element.appendChild(para);
+					element.appendChild(br);
+				});
+			}
+		  };
+		  /*****
+		  		CHANGE THE URL TO YOUR URL LOCATION
+		  *****/
+		  xhttp.open('POST','http://192.168.43.149/isbn/amazon.php',true);
+		  xhttp.setRequestHeader('Content-Type', 'application/json');
+		  xhttp.send(bookstore_url);
+		  return false;
+		}
+		
+		function barnesAndNobels(){
+		  var bookstore_url = document.getElementById("bookstore_url").value;
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				var element = document.getElementById("url_links");
+				JSON.parse(xhttp.responseText).forEach(function(url_name){
+					var para = document.createElement("a");
+					var br = document.createElement("br");
+					var node = document.createTextNode("B&N");
+					para.appendChild(node);
+					para.setAttribute('href', url_name);
+					element.appendChild(para);
+					element.appendChild(br);
+				});
+			}
+		  };
+		  /*****
+		  		CHANGE THE URL TO YOUR URL LOCATION
+		  *****/
+		  xhttp.open('POST','http://192.168.43.149/isbn/ban.php',true);
+		  xhttp.setRequestHeader('Content-Type', 'application/json');
+		  xhttp.send(bookstore_url);
+		  return false;
+		}
+		
+		function albris(){
+		  var bookstore_url = document.getElementById("bookstore_url").value;
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				var element = document.getElementById("url_links");
+				JSON.parse(xhttp.responseText).forEach(function(url_name){
+					var para = document.createElement("a");
+					var br = document.createElement("br");
+					var node = document.createTextNode("Albris");
+					para.appendChild(node);
+					para.setAttribute('href', url_name);
+					element.appendChild(para);
+					element.appendChild(br);
+				});
+			}
+		  };
+		  /*****
+		  		CHANGE THE URL TO YOUR URL LOCATION
+		  *****/
+		  xhttp.open('POST','http://192.168.43.149/isbn/albris.php',true);
+		  xhttp.setRequestHeader('Content-Type', 'application/json');
+		  xhttp.send(bookstore_url);
+		  return false;
+		}
+		
+    </script>
+    
+    <style>
+    	body{
+    		margin: auto;
+    		width: 80%;
+    		text-align: center;
+    	}
+    	
+		input {
+    		margin-top: 50px;
+		}
+
+		button {
+    		color: white;
+    		background-color: blue;
+    		border-radius: 5px;
+    		border: 0px;
+    		height: 25px;
+    		width: 60px;
+    		margin-top: 10px;
+    		margin-left: 25px;
+    		margin-right: 25px;
+		}
+		
+		h3{
+			margin-top: 50px;
+		}
+		
+		#url_links{
+			text-align: left;
+			font-size: 150%;
+			margin: 30px;
+		}
+	</style>
+
+    <meta charset="UTF-8">
+  </head>
+  <body>
+		<h3>Try inputting the following URL's into the text field below:</h3>
+ 		<br>http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=584&term_id-1=2016+Fall&crn-1=91543
+ 		<br>http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=584&term_id-1=2016+Fall&crn-1=92768
+ 		<br>http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=584&term_id-1=2017+Spring&crn-1=11534<br>
+ 		<input type="text" id="bookstore_url" size="130">
+		<br>
+ 			<button id="bookstoreReq" onclick="amazon()">Amazon</button>
+ 			<button id="bookstoreReq" onclick="barnesAndNobels()">B&N</button>
+ 			<button id="bookstoreReq" onclick="albris()">Albris</button>
+ 		
+ 		
+ 		
+ 		<div id="url_links">
+ 		</div>
+  </body>
+</html>
