@@ -6,7 +6,7 @@ include('session.php');
 <head>
 <meta  content='text/html;  charset=UTF-8'  http-equiv='Content-Type'/>
 <link  rel="stylesheet"  type="text/css"  href="css/style2.css"  />
-<title><?php echo $loggedin_session; ?>'s Profile Page</title>
+<title>Profile Page</title>
 </head>
 <body>
 <header>
@@ -19,21 +19,24 @@ include('session.php');
 </header>
 <div  id="center">
 <div  id="center-set">
-<h1  align='center'>Welcome  <?php  echo  $loggedin_session;  ?>!</h1>
+<h1  align='center'>Welcome!</h1>
 <!--<p  align='center'>  You  are  now  logged  in.  You  can  logout  by  clicking  on  signout  link  given  below.</p>-->
 <div  id="contentbox">
 <?php
 include('db.php');
-$sql="SELECT  *  FROM  register  where id=$loggedin_id";
+$username = $_POST['username'];
+$sql="SELECT  *  FROM  register  where username = '$username'";
 $result=mysqli_query($db,$sql);
+$userid;
 ?>
 <?php
 while($rows=mysqli_fetch_array($result)){
+	$userid = $rows['id'];
 ?>
 <div  id="signup">
 <div  id="signup-st">
 <form  action=""  method="POST"  id="signin"  id="reg">
-<div  id="reg-head"  class="headrg">Your  Profile</div>
+<div  id="reg-head"  class="headrg">Profile</div>
 <table  border="0"  align="center"  cellpadding="2"  cellspacing="0">
 <tr  id="lg-1">
 <td  class="tl-1"><div  align="left"  id="tb-name">Name:</div></td>
@@ -58,7 +61,8 @@ mysqli_close($db);
 <div  id="login-st">
 <?php
 include('db.php');
-$search_sql = "select * from booksale where id = '$loggedin_id'";
+$search_sql = "select * from booksale where id = '$userid'";
+
 if(!mysqli_query($db, $search_sql)){
 	echo "Error message: ".mysqli_error($db);
 }

@@ -1,21 +1,3 @@
-<?php
-define('IN_PHPBB', true);
-
-$phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './phpBB3/';
-$phpEx = substr(strrchr(__FILE__, '.'), 1);
-include($phpbb_root_path . 'common.' . $phpEx);
-
-// Start session management
-$user->session_begin();
-$auth->acl($user->data);
-$user->setup('');
-
-
-if ($user->data['user_id'] != ANONYMOUS)
-{
-header("Location: postlogin.php");
-die();}
-?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie8 lt-ie10"><![endif]-->
 <!--[if IE 9]><html class="ie9 lt-ie10"><![endif]-->
@@ -54,13 +36,13 @@ die();}
         <!-- start of countdown block, how change this date see js (function countdownInit)-->
         <div class="block_main-header__countdown col-xs-12 col-sm-6 col-md-6">
          <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
-         <a href="login.php">
+         <a href="login2.html">
       <button type="submit" class="block_main-footer__form-button animated fadeInUp"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Login</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
       </a>
        </div>
        
        <div class="block_main-header__countdown col-xs-12 col-sm-3 col-md-3">
-          <a href="login.php#toregister"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Sign Up</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
+          <a href="login2.html#toregister"><button type="submit" class="block_main-footer__form-button animated fadeInDown"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text"> Sign Up</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
     </a>
        </div>
         </div>
@@ -74,7 +56,7 @@ die();}
           </div>
           <div class="block_main-header__banner-titles">
            
-            <p class="block_main-header__banner-slogan">Slogan Here</p>
+            <p class="block_main-header__banner-slogan">NJIT Textbook Hub</p>
           </div>
         </div>
         <!-- end of "logotype"/caption block-->
@@ -87,29 +69,28 @@ die();}
         <!-- subscribe form container start-->
         <div class="block_main-footer__form-container custom-container-centred">
        
-          <form action= "booksearchmq.php" method="post" name="searchform" class="block_main-footer__form">
+          <form action= "search-result.php" method="post" name="searchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
               <input type="text" name="title" placeholder="Enter Book Title Here" class="block_main-footer__form-input" required>
             </div>
             <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
               <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
-   	</div>
-  
-	</form>
-	<a href="advancedsearch.php" style="color:white">Advanced Search</a><br><br>
-	<form action= "coursesearch.php" method="post" name="coursesearchform" class="block_main-footer__form">
+   	        </div>
+           </form>
+
+    <a href="advancedsearch.php" style="color:white">Advanced Search</a><br><br>
+    
+	<form action= "course-search-resultmq.php" method="post" name="coursesearchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
               <input type="text" name="course" placeholder="Enter Course Here" class="block_main-footer__form-input" required>
             </div>
             <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
               <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
-        </div>
+            </div>
+    </form>                    
 
-        </form>
-                    
-        </div>
         <!-- footer subscribe form end-->
       </div>
       <!-- main footer end-->

@@ -1,26 +1,18 @@
-<?php
-define('IN_PHPBB', true);
-
-$phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './phpBB3/';
-$phpEx = substr(strrchr(__FILE__, '.'), 1);
-include($phpbb_root_path . 'common.' . $phpEx);
-
-// Start session management
-$user->session_begin();
-$auth->acl($user->data);
-$user->setup('');
-
-
-if ($user->data['user_id'] == ANONYMOUS)
-{
-header("Location: login.php");
-die();}
-?>
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie8 lt-ie10"><![endif]-->
 <!--[if IE 9]><html class="ie9 lt-ie10"><![endif]-->
 <!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+
+<?php
+//create a session with username
+//if you try to access this page without logging in, will be redirected
+  session_start();
+  if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+    header ("Location:index.php");
+
+  }
+  $username = $_SESSION['username'];
+?>
 
 <head>
     <meta charset="utf-8">
@@ -97,7 +89,7 @@ die();}
         <!-- subscribe form container start-->
         <div class="block_main-footer__form-container custom-container-centred">
        
-          <form method="post" action="booksearchmq.php" name="searchform" class="block_main-footer__form">
+          <form method="post" action="search-result.php" name="searchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
               <input type="text" name="title" placeholder="Enter Book Title Here" class="block_main-footer__form-input" required>
@@ -109,7 +101,7 @@ die();}
 
         <a href="advancedsearch.php" style="color:white">Advanced Search</a><br><br>
 
-	<form action= "coursesearch.php" method="post" name="coursesearchform" class="block_main-footer__form">
+	<form action= "course-search-resultmq.php" method="post" name="coursesearchform" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
               <input type="text" name="course" placeholder="Enter Course Here" class="block_main-footer__form-input" required>
@@ -120,10 +112,10 @@ die();}
 
     </form>
 
-    <form action= "placeholder.php" method="post" name="UsernameHere" class="block_main-footer__form">
+    <form action= "profilesearch.php" method="post" name="profilesearch" class="block_main-footer__form">
 
             <div class="block_main-footer__form-input-container col-xs-12 col-sm-12">
-              <input type="text" name="title" placeholder="Enter Username Here" class="block_main-footer__form-input" required>
+              <input type="text" name="username" placeholder="Enter Username Here" class="block_main-footer__form-input" required>
             </div>
             <div class="block_main-footer__form-button-container col-xs-12  col-sm-2">
               <button type="submit" class="block_main-footer__form-button"> <span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-normal block_main-footer__form-button__text-active"><span class="block_main-footer__form-button__text">  Search</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-error"> <span class="block_main-footer__form-button__text">  Error</span></span><span class="block_main-footer__form-button__text-container block_main-footer__form-button__text-success"> <span class="block_main-footer__form-button__text">  Success </span></span></button>
